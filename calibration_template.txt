@@ -1,0 +1,16 @@
+metadata = {
+    'protocolName': 'Test protocol',
+    'author': 'Joshua',
+    'source': 'Joshua',
+    'apiLevel': '2.3'
+}
+
+def run(protocol):
+    lower_right = protocol.load_labware("lr_name", lr_slot)
+    upper_left = protocol.load_labware("ul_name", ul_slot)
+    tipracks = protocol.load_labware("opentrons_96_tiprack_20ul", "tiprack_slot")
+    pipette = protocol.load_instrument("p20_single_gen2", "right", [tipracks])
+    pipette.pick_up_tip()
+    #pipette.move_to(lower_right["A1"].top())
+    #pipette.move_to(upper_left["A1"].top())
+    pipette.drop_tip()
